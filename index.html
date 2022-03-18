@@ -29,23 +29,28 @@
             <div class="row text-center justify-content-center d-flex">
                 <div class="col-8 justify-content-center bg-white p-3 rounded-3 shadow">
                     <div class="input-wrapper input-group d-flex">
-                        <input type="text" placeholder="New Task" v-model="newTask.text" @keyup.enter="addTask()" class="rounded-pill form-control me-2">
+                        <input type="text" placeholder="New Task" v-model="newTask.text" @keydown.enter="addTask()" class="rounded-pill form-control me-2">
                         <button type="button" @click="addTask()" class="btn btn-outline-secondary rounded-pill">
                             <i class="fa-solid fa-plus"></i> Add
                         </button>
                     </div>
 
-                    <h3 class="text-uppercase fw-bold p-4 text-secondary">To-do list</h3>
+                    <div class="list-header d-flex p-4 justify-content-evenly px-0">
+                        <h3 class="text-uppercase fw-bold text-secondary">To-do list</h3>
+                        <i @click="clearAllTasks()" class="fa-solid fa-trash text-secondary fs-3 "></i>
+                    </div>
+
                     <div class="todo-list-wrapper">
                         <ul class="list-group" v-if="tasks.length >= 1">
-                            <li class="list-group-item d-flex justify-content-between rounded-pill align-items-center" v-for="(task, index) in tasks">
+                            <li class="list-group-item d-flex justify-content-between rounded-pill align-items-center mb-2" :class="newTask.done ? 'text-decoration-line-through' : ''  " 
+                            v-for="(task, index) in tasks" @click="task.done = !task.done">
                                 {{ task.text }}
-                                <span class="badge bg-primary text-dark" @click="removeTask(index)" :class="newTask.done ? 'text-decoration-line-through' : ''  ">
+                                <span class="badge bg-primary text-dark" @click="removeTask(index)">
                                     <i class="fa-solid fa-xmark text-white fs-3"></i>
                                 </span>
                             </li>
                         </ul>
-                        <h5 v-else>To-do list is empty</h5>
+                        <p v-else>No tasks.</p>
                     </div>
 
                 </div>

@@ -16,7 +16,7 @@ const app = new Vue(
         data: {
             newTask: {
                 text: '',
-                done: true
+                done: false
             },
             tasks: [],
         },
@@ -28,7 +28,6 @@ const app = new Vue(
                         text: this.newTask.text,
                         done: false
                     });
-                } else {
                     this.newTask.text = '';
                 }
             },
@@ -37,8 +36,9 @@ const app = new Vue(
                     this.tasks.splice(index, 1);
                 }
             },
-
-
+            clearAllTasks() {
+                this.tasks = [];
+            }
         }
     }
 );
