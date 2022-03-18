@@ -2,11 +2,19 @@ body {
     background-color: #e7eaf0;
 }
 
-ul span,
+ul li,
 div.list-header i {
     cursor: pointer;
 }
 
+div.list-header i {
+    vertical-align: middle;
+}
+
 ul.list-group li:hover {
     background-color: #bdc3cf;;
+}
+
+ul.list-group li span i:hover {
+    
 }

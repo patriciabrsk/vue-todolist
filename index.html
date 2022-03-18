@@ -35,15 +35,15 @@
                         </button>
                     </div>
 
-                    <div class="list-header d-flex p-4 justify-content-evenly px-0">
-                        <h3 class="text-uppercase fw-bold text-secondary">To-do list</h3>
-                        <i @click="clearAllTasks()" class="fa-solid fa-trash text-secondary fs-3 "></i>
+                    <div class="list-header d-flex p-4 justify-content-evenly align-items-center">
+                        <h3 class="text-uppercase fw-bold text-secondary m-0">To-do list</h3>
+                        <i @click="clearAllTasks()" class="fa-solid fa-trash text-secondary fs-4"></i>
                     </div>
 
                     <div class="todo-list-wrapper">
                         <ul class="list-group" v-if="tasks.length >= 1">
-                            <li class="list-group-item d-flex justify-content-between rounded-pill align-items-center mb-2" :class="newTask.done ? 'text-decoration-line-through' : ''  " 
-                            v-for="(task, index) in tasks" @click="task.done = !task.done">
+                            <li class="list-group-item d-flex justify-content-between rounded-pill align-items-center mb-2"
+                            <!-- v-for="(task, index) in tasks" @click="completeTask(task)" :class="text-decoration-line-through"> -->
                                 {{ task.text }}
                                 <span class="badge bg-primary text-dark" @click="removeTask(index)">
                                     <i class="fa-solid fa-xmark text-white fs-3"></i>
@@ -52,7 +52,6 @@
                         </ul>
                         <p v-else>No tasks.</p>
                     </div>
-
                 </div>
             </div>
         </div>

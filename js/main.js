@@ -38,6 +38,9 @@ const app = new Vue(
             },
             clearAllTasks() {
                 this.tasks = [];
+            },
+            completeTask(task) {
+                this.task.done = !this.task.done;
             }
         }
     }
