@@ -18,9 +18,9 @@ const app = new Vue(
                 text: '',
                 done: true
             },
+            tasks: [],
         },
-        tasks: [],
-
+        
         methods: {
             addTask() {
                 if (this.newTask.text.trim() !== '') {
