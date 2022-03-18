@@ -23,19 +23,22 @@ const app = new Vue(
 
         methods: {
             addTask() {
-                // if (this.newTask.text == '') {
-                //     this.newTask.push({
-                //         text: this.newTask.text,
-                //         done: false
-                //     });
-                // } else {
-                //     this.newTask.text = '';
-                // }
+                if (this.newTask.text.trim() !== '') {
+                    this.tasks.push({
+                        text: this.newTask.text,
+                        done: false
+                    });
+                } else {
+                    this.newTask.text = '';
+                }
+            },
+            removeTask(index) {
+                if (this.tasks[index] != undefined) {
+                    this.tasks.splice(index, 1);
+                }
             },
 
-            removeTask(index) {
-                this.tasks.splice(index, 1);
-            },
+
         }
     }
 );

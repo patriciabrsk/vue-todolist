@@ -37,7 +37,7 @@
 
                     <h3 class="text-uppercase fw-bold p-4 text-secondary">To-do list</h3>
                     <div class="todo-list-wrapper">
-                        <ul class="list-group">
+                        <ul class="list-group" v-if="tasks.length >= 1">
                             <li class="list-group-item d-flex justify-content-between rounded-pill align-items-center" v-for="(task, index) in tasks">
                                 {{ task.text }}
                                 <span class="badge bg-primary text-dark" @click="removeTask(index)" :class="newTask.done ? 'text-decoration-line-through' : ''  ">
@@ -45,6 +45,7 @@
                                 </span>
                             </li>
                         </ul>
+                        <h5 v-else>To-do list is empty</h5>
                     </div>
 
                 </div>
