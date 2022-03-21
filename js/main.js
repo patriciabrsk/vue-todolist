@@ -40,7 +40,9 @@ const app = new Vue(
                 this.tasks = [];
             },
             completeTask(task) {
+                if (this.tasks[index] != undefined) {
                 this.task.done = !this.task.done;
+                }
             }
         }
     }
